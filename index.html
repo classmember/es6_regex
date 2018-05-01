@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> 
+  <style>
+    h1,h2,h3,h4,h5,h6,p,label,input {font-family: 'Lato', sans-serif;}
+    body {padding: 20px; display: inline-grid; color: #333;}
+    .code {padding: 10px; background-color: #000; color: #eee;}
+  </style>
+</head>
+<body>
+<h1>ES6</h1>
+<h2>find number of matches</h2>
+<p>Use the String and Regex inputs to test for the number of matches.</p>
+<form>
+  <label>String: </label><br>
+  <input id="string_input" input type="text" name="string_input" value="The best things in life are free">
+  </input>
+  <br><br>
+  <label>Regex: </label><br>
+  <input id="regex_input" input type="text" name="regex_input" value="e">
+  </input>
+  <br><br>
+  <label>Number of matches: </label><br>
+  <input id="number_of_matches" input type="text" name="number_of_matches" readonly>
+  <p id="demo"></p>
+</form>
+<h2>source code</h2>
+<div class="code">
+<pre>
+function main() {
+  add_listeners();
+  check_regex();
+}
+window.onload = main;
+
+var timer_to_check_regex = setInterval(check_regex, 100);
+
+function add_listeners() {
+  document.getElementById("string_input")
+    .addEventListener("change", check_regex);
+
+  document.getElementById("regex_input")
+    .addEventListener("change", check_regex);
+}
+
+function check_regex() {
+  var str = document.getElementById("string_input");
+  var rgx = document.getElementById("regex_input");
+  var re = new RegExp((rgx.value || '\\u0000'), 'g');
+  var num_matched = document.getElementById("number_of_matches");
+  var result = (str.value.match(re) || []).length;
+  num_matched.value = result;  
+}
+</pre>
+<div>
+<script>
+function main() {
+  add_listeners();
+  check_regex();
+}
+window.onload = main;
+
+var timer_to_check_regex = setInterval(check_regex, 100);
+
+function add_listeners() {
+  document.getElementById("string_input")
+    .addEventListener("change", check_regex);
+
+  document.getElementById("regex_input")
+    .addEventListener("change", check_regex);
+}
+
+function check_regex() {
+  var str = document.getElementById("string_input");
+  var rgx = document.getElementById("regex_input");
+  var re = new RegExp((rgx.value || '\\u0000'), 'g');
+  var num_matched = document.getElementById("number_of_matches");
+  var result = (str.value.match(re) || []).length;
+  num_matched.value = result;  
+}
+</script>
+</body>
+</html>
