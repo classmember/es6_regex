@@ -6,7 +6,7 @@
   <style>
     h1,h2,h3,h4,h5,h6,p,label,input {font-family: 'Lato', sans-serif;}
     body {padding: 20px; display: inline-grid; color: #333;}
-    .code {padding: 10px; background-color: #000; color: #eee;}
+    .code {padding: 10px; background-color: #ececec; border-radius: 3.5px;}
   </style>
 </head>
 <body>
@@ -28,30 +28,25 @@
 </form>
 <h2>source code</h2>
 <div class="code">
-<pre>
-function main() {
+    <pre style="background:rgba(238,238,238,0.92);color:#000"><span style="font-weight:700">function</span> <span style="color:#ff8000">main</span>() {
   add_listeners();
   check_regex();
 }
-window.onload = main;
-
-var timer_to_check_regex = setInterval(check_regex, 100);
-
-function add_listeners() {
-  document.getElementById("string_input")
-    .addEventListener("change", check_regex);
-
-  document.getElementById("regex_input")
-    .addEventListener("change", check_regex);
+<span style="color:#33f;font-weight:700">window</span>.onload <span style="color:#00f">=</span> main;
+<span style="font-weight:700">var</span> timer_to_check_regex <span style="color:#00f">=</span> <span style="color:#33f;font-weight:700">setInterval</span>(check_regex, <span style="color:#06f">100</span>);
+<span style="font-weight:700">function</span> <span style="color:#ff8000">add_listeners</span>() {
+  <span style="color:#33f;font-weight:700">document</span>.<span style="color:#33f;font-weight:700">getElementById</span>(<span style="color:#093">"string_input"</span>)
+    .addEventListener(<span style="color:#093">"change"</span>, check_regex);
+  <span style="color:#33f;font-weight:700">document</span>.<span style="color:#33f;font-weight:700">getElementById</span>(<span style="color:#093">"regex_input"</span>)
+    .addEventListener(<span style="color:#093">"change"</span>, check_regex);
 }
-
-function check_regex() {
-  var str = document.getElementById("string_input");
-  var rgx = document.getElementById("regex_input");
-  var re = new RegExp((rgx.value || '\\u0000'), 'g');
-  var num_matched = document.getElementById("number_of_matches");
-  var result = (str.value.match(re) || []).length;
-  num_matched.value = result;  
+<span style="font-weight:700">function</span> <span style="color:#ff8000">check_regex</span>() {
+  <span style="font-weight:700">var</span> str <span style="color:#00f">=</span> <span style="color:#33f;font-weight:700">document</span>.<span style="color:#33f;font-weight:700">getElementById</span>(<span style="color:#093">"string_input"</span>);
+  <span style="font-weight:700">var</span> rgx <span style="color:#00f">=</span> <span style="color:#33f;font-weight:700">document</span>.<span style="color:#33f;font-weight:700">getElementById</span>(<span style="color:#093">"regex_input"</span>);
+  <span style="font-weight:700">var</span> re <span style="color:#00f">=</span> <span style="color:#00f">new</span> <span style="">RegExp</span>((rgx.<span style="color:#6782d3">value</span> <span style="color:#00f">||</span> <span style="color:#093">'<span style="color:#6782d3">\\</span>u0000'</span>), <span style="color:#093">'g'</span>);
+  <span style="font-weight:700">var</span> num_matched <span style="color:#00f">=</span> <span style="color:#33f;font-weight:700">document</span>.<span style="color:#33f;font-weight:700">getElementById</span>(<span style="color:#093">"number_of_matches"</span>);
+  <span style="font-weight:700">var</span> result <span style="color:#00f">=</span> (str.<span style="color:#6782d3">value</span>.<span style="color:#33f;font-weight:700">match</span>(re) <span style="color:#00f">||</span> []).<span style="color:#6782d3">length</span>;
+  num_matched.<span style="color:#6782d3">value</span> <span style="color:#00f">=</span> result;  
 }
 </pre>
 <div>
